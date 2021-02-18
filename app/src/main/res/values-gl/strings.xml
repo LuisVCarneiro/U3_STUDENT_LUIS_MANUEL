@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">U3_STUDENT_LUIS_MANUEL</string>
+    <string name="action_settings">Opcións</string>
+    <string name="text_clear">Limpar</string>
+    <string name="text_button">Engadir / Limpar</string>
+    <string name="text_label">Aquí é donde verás o texto que escribas</string>
+    <string name="text_hint">Escribe algún texto e presiona o botón</string>
+    <string name="text_red">Vermello</string>
+    <string name="text_blue">Azul</string>
+    <string name="text_start">Iniciar</string>
+    <string name="text_stop">Parar</string>
+    <string name="text_image">Terraza de Sada - Sada</string>
+    <string name="text_toast_gal">Seleccionache unha provincia galega</string>
+    <string name="text_toast_no_gal">Non seleccionache unha provincia galega</string>
+    <string name="Imaxe">Imaxe</string>
+</resources>

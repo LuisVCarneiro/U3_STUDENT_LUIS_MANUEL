@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etEntrada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/verde_luis"
+            android:text="@string/text_hint"
+            android:inputType="text|textCapSentences"/>
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_clear"
+            tools:layout_editor_absoluteX="28dp"
+            tools:layout_editor_absoluteY="47dp"/>
+
+        <Button
+            android:id="@+id/btAddClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_button"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvSalida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_label"
+            android:inputType="textMultiLine"
+            android:textColor="@color/red" />
+
+        <RadioGroup
+            android:id="@+id/rgRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbRed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_red"
+                android:layout_marginLeft="80dp"
+                android:onClick="comprobarRadioButton"/>
+
+            <RadioButton
+                android:id="@+id/rbBlue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_blue"
+                android:layout_marginLeft="120dp"
+                android:onClick="comprobarRadioButton"/>
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/black" />
+
+        <Spinner
+            android:id="@+id/spProvincias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/provincias"/>
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/black" />
+
+        <ImageView
+            android:id="@+id/ivImagen"
+            android:layout_width="297dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/terraza"
+            android:tag="@string/text_image"/>
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@color/black" />
+
+        <Chronometer
+            android:id="@+id/chCrono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="25dp"/>
+
+
+        <Switch
+            android:id="@+id/swChrono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textOff="@string/text_start"
+            android:textOn="@string/text_start"
+            android:checked="false"/>
+
+        <TextView
+            android:id="@+id/tvSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</LinearLayout>
