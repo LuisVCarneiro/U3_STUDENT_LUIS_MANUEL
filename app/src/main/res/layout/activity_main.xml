@@ -75,8 +75,7 @@
         <Spinner
             android:id="@+id/spProvincias"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/provincias"/>
+            android:layout_height="wrap_content"/>
 
         <View
             android:id="@+id/divider2"

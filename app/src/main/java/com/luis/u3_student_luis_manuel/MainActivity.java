@@ -8,6 +8,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Chronometer;
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUpView();
+        /*
+        Llamada al método spinner que rellena el spinner y lo maneja
+         */
+        spinner(spProvincias);
 
         /*
         Aqui compruebo cual es la horientación de la pantalla para inicializar tanto el ImageView
@@ -65,25 +70,6 @@ public class MainActivity extends AppCompatActivity {
         gestionarEventos maneja los métodos del cronómetro
          */
         gestionarEventos();
-
-        /*
-        Método que recoje el item del spinner provincias que está seleccionado para lanzar el
-        toast de si es provincia gallega o no
-         */
-        spProvincias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spProvincias.getSelectedItemId() < 4){
-                    Toast.makeText(getApplicationContext(), getString(R.string.text_toast_gal),Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(getApplicationContext(), getString(R.string.text_toast_no_gal),Toast.LENGTH_LONG).show();
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
     }
 
@@ -105,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         Este método funcionaría la primera vez que se inicializa la app, ya que asi el texto de muestra se elimina y
         no se concatena con lo nuevo.
          */
-
         btAddClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -234,6 +219,33 @@ public class MainActivity extends AppCompatActivity {
                 String texto = (String)ivImagen.getTag();
                 tvPrueba.setText(texto);
                 Toast.makeText(getApplicationContext(), texto, Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
+    /*
+    El método spinner rellena mediante un ArrayAdapter los item del array, tomando del array provincias los datos.
+    Posteriormente, con el método onClick, recojo el item seleccionado y lanzo el toast correspondiente
+     */
+
+    public void spinner(View view){
+        ArrayAdapter <CharSequence> adaptador = ArrayAdapter.createFromResource(getApplicationContext(),R.array.provincias,
+               android.R.layout.simple_spinner_item);
+        adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spProvincias.setAdapter(adaptador);
+        spProvincias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spProvincias.getSelectedItemId() < 4){
+                    Toast.makeText(getApplicationContext(), getString(R.string.text_toast_gal),Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.text_toast_no_gal),Toast.LENGTH_LONG).show();
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
