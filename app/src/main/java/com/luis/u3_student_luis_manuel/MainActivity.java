@@ -34,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private Chronometer chCrono;
     private Switch swChrono;
     private int temporizador;
-    private TextView tvPrueba;
     private ImageView ivImagen;
-
+    /*
+    Este objeto TextView es a mayores de lo especificado en la tarea pero como no me funciona el
+    Toast, me sierve para comprobar que el código funciona.
+     */
+    private TextView tvPrueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +47,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setUpView();
 
+        /*
+        Aqui compruebo cual es la horientación de la pantalla para inicializar tanto el ImageView
+        como el método que lanza el toast al hacer click en ella
+         */
         if (getRotation() == 0){
             ivImagen = findViewById(R.id.ivImagen);
             infoImagen(ivImagen);
         }
 
+        /*
+        El método comprobarcheckBox chequea que el checkBox clear está o no activado.
+         */
         comprobarcheckBox(checkBox);
+
+        /*
+        gestionarEventos maneja los métodos del cronómetro
+         */
         gestionarEventos();
 
+        /*
+        Método que recoje el item del spinner provincias que está seleccionado para lanzar el
+        toast de si es provincia gallega o no
+         */
         spProvincias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -81,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
         chCrono = findViewById(R.id.chCrono);
         swChrono = findViewById(R.id.swChrono);
         tvPrueba = findViewById(R.id.tvSpinner);
-        //ivImagen = findViewById(R.id.ivImagen);
 
         /*
         Método que introduce el texto escrito en la etiqueta verde (etEntrada) dentro de la etiqueta roja (tvSalida).
@@ -198,12 +215,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    Método que mediante getRotation de Display, devuelve un int con valor 0 (vertical) o 1 (horizontal)
+     */
     public int getRotation(){
         Display display = ((WindowManager)getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
         int orientacion = display.getRotation();
         return orientacion;
     }
 
+    /*
+    Método que mediante onClick, lanza el toast con la info de la imagen
+     */
     public void infoImagen(View view){
         ivImagen.setOnClickListener(new View.OnClickListener() {
             @Override
